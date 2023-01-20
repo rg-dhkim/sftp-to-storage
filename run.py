@@ -23,7 +23,7 @@ def get_file(host,username,password,date):
 
 def upload_to_gcs(bucket_name,filename):
     storage_client = storage.Client()
-    blob_name = filename
+    blob_name = f'latest/{filename}'
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
     try:
