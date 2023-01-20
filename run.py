@@ -38,9 +38,11 @@ if __name__ == '__main__':
     PASSWORD = os.environ.get('SFTP_PASSWORD','Specified environment variable is not set.')
     BUCKET_NAME = os.environ.get('STORAGE_BUCKET_NAME','Specified environment variable is not set.')
 
-
     today = date.today()
     yesterday = today - timedelta(days = 1)
     yesterday = yesterday.strftime('%Y_%m_%d')
     filename = get_file(HOST,USERNAME,PASSWORD,yesterday)
     upload_to_gcs(BUCKET_NAME,filename)
+    
+    os.remove(filename)
+    return 'Done'
