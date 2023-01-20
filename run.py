@@ -45,4 +45,4 @@ if __name__ == '__main__':
     upload_to_gcs(BUCKET_NAME,filename)
     
     os.remove(filename)
-    return 'Done'
+    print(f'Removed {filename}')
